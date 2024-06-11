@@ -21,5 +21,6 @@ COPY . .
 ENV OPENAI_API_KEY=<tu_openai_api_key>
 ENV DISCORD_TOKEN=<tu_discord_token>
 
+RUN python3 create_database.py
 # Comando para ejecutar el bot
-CMD ["python", "main.py"]
+CMD ["python3", "main.py"]

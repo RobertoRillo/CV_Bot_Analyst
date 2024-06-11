@@ -18,13 +18,13 @@ nltk.download('punkt')
 CHROMA_PATH = "chroma"
 
 PROMPT_TEMPLATE = """
-Answer the question based only on the following context:
+Responde la pregunta basado en este contexto
 
 {context}
 
-You are a CV bot analist, behave as a professional
+Eres un bot que responde preguntas acerca del reglamento de transito de Jalisco, Responde como un robot asistente, y si te preguntan algo fuera del contexto responde que para eso no fuiste programado.
 
-Answer the question based on the above context: {question}
+Respond la pregunta basado en el contexto de arriba: {question}
 """
 
 def main():
@@ -40,7 +40,7 @@ def main():
 
     # Search the DB.
     results = db.similarity_search_with_relevance_scores(query_text, k=3)
-    if len(results) == 0 or results[0][1] < 0.7:
+    if len(results) == 0 or results[0][1] < 0.1:
         print(f"Unable to find matching results.")
         return
 
